@@ -32,15 +32,10 @@ const { TextArea } = Input;
 export default function ThemeScreen() {
   const [text, setText] = useState("");
   const navigation = useNavigation();
-
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
   const [value, onChangeText] = React.useState("Useless Multiline Placeholder");
-
-  const handleSubmit = () => {
-    // Xử lý logic khi nhấn nút đăng bài ở đây
-    console.log("Content:", text);
-    // Reset ô nhập liệu sau khi đăng bài
-    setText("");
-  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -48,94 +43,124 @@ export default function ThemeScreen() {
         <Text style={{ fontSize: 36, color: "black", fontWeight: "bold" }}>
           Select a Specialty
         </Text>
-        <Text style={{ fontSize: 14, color: "black" }}>
+        <Text style={{ fontSize: 14, color: "black", fontStyle: "italic" }}>
           Choose one of the following specialties for your chat
         </Text>
       </View>
       <View style={styles.middle}>
         <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("quiz")}
+          style={[styles.button]}
+          onPress={() => {
+            handleMouseEnter();
+            navigation.navigate("(chats)");
+          }}
         >
           <Text
-            style={{
-              color: "white",
-              // justifyContent: "center",
-              textAlign: "center",
-              fontSize: 18,
-              fontWeight: 600,
-            }}
+            style={[
+              {
+                color: "#525F7F",
+                // justifyContent: "center",
+                textAlign: "center",
+                fontSize: 18,
+                fontWeight: 600,
+              },
+            ]}
           >
-            Start Quiz
+            Quấy rối tình dục
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("quiz")}
+          onPress={() => navigation.navigate("(chats)")}
         >
           <Text
             style={{
-              color: "white",
+              color: "#525F7F",
               // justifyContent: "center",
               textAlign: "center",
               fontSize: 18,
               fontWeight: 600,
             }}
           >
-            Start Quiz
+            Bạo lực gia đình
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("quiz")}
+          onPress={() => navigation.navigate("(chats)")}
         >
           <Text
             style={{
-              color: "white",
+              color: "#525F7F",
               // justifyContent: "center",
               textAlign: "center",
               fontSize: 18,
               fontWeight: 600,
             }}
           >
-            Start Quiz
+            Phân biệt đối xử trong công việc
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("quiz")}
+          onPress={() => navigation.navigate("(chats)")}
         >
           <Text
             style={{
-              color: "white",
+              color: "#525F7F",
               // justifyContent: "center",
               textAlign: "center",
               fontSize: 18,
               fontWeight: 600,
             }}
           >
-            Start Quiz
+            Bình đẳng giới trong giáo dục
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("quiz")}
+          onPress={() => navigation.navigate("(chats)")}
         >
           <Text
             style={{
-              color: "white",
+              color: "#525F7F",
               // justifyContent: "center",
               textAlign: "center",
               fontSize: 18,
               fontWeight: 600,
             }}
           >
-            Start Quiz
+            Bất bình đẳng trong tham gia
+          </Text>
+          <Text
+            style={{
+              color: "#525F7F",
+              // justifyContent: "center",
+              textAlign: "center",
+              fontSize: 18,
+              fontWeight: 600,
+            }}
+          >
+            chính trị và xã hội
           </Text>
         </TouchableOpacity>
       </View>
 
-      <View style={styles.bottom}></View>
+      <View style={styles.bottom}>
+        <Text
+          style={{
+            color: "#98A3C7",
+            // justifyContent: "center",
+            textAlign: "center",
+            marginTop: 40,
+            fontSize: 12,
+            fontWeight: 700,
+          }}
+        >
+          By using it you confirm that you have read and agree to our terms of
+          service and privacy policy
+        </Text>
+      </View>
     </SafeAreaView>
   );
 }
@@ -146,13 +171,13 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   top: {
-    flex: 0.3,
+    flex: 0.1,
     backgroundColor: "#F3F4F5",
     marginHorizontal: 20,
     marginVertical: 20,
   },
   middle: {
-    flex: 0.6,
+    flex: 0.7,
     backgroundColor: "#F3F4F5",
     marginHorizontal: 20,
     justifyContent: "center",
@@ -172,12 +197,15 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    backgroundColor: "#2EB5FA",
+    backgroundColor: "#E3E5ED",
     padding: 10,
     justifyContent: "center",
     marginTop: 20,
     borderRadius: 15,
-    height: 50,
+    height: 90,
     marginHorizontal: 10,
+  },
+  hoveredButton: {
+    backgroundColor: "#2EB5FA", // change this to the color you want when hovered
   },
 });

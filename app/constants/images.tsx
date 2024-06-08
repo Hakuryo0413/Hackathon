@@ -11,4 +11,5 @@ export default {
   splash2: require("../../assets/images/splash2.jpeg"),
   facebook: require("../../assets/images/facebook.jpeg"),
   google: require("../../assets/images/google.jpeg"),
+  bot:require("../../assets/images/bot.jpeg"),
 };

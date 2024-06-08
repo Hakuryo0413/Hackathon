@@ -5,6 +5,7 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 // import { Stack } from "expo-router";
 import { useEffect } from "react";
 import "react-native-reanimated";
@@ -54,19 +55,24 @@ function RootLayoutNav() {
 
   return (
     // <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-    <Stack>
-      <Stack.Screen name="(splashs)" options={{ headerShown: false }} />
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Stack>
+        <Stack.Screen name="(splashs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 
-      <Stack.Screen name="(screens)" options={{ headerShown: false }} />
-      <Stack.Screen name="(posts)" options={{ headerShown: false }} />
+        <Stack.Screen name="(screens)" options={{ headerShown: false }} />
+        <Stack.Screen name="(posts)" options={{ headerShown: false }} />
 
-      <Stack.Screen name="modal" options={{ headerShown: false }} />
-      <Stack.Screen name="(chats)" options={{ headerShown: false }} />
+        <Stack.Screen name="modal" options={{ headerShown: false }} />
+        <Stack.Screen name="(mess)" options={{ headerShown: false }} />
+        {/* <Stack.Screen name="(channels)" options={{ headerShown: false }} /> */}
 
-      {/* <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="(chats)" options={{ headerShown: false }} />
+
+        {/* <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="search/[query]" options={{ headerShown: false }} /> */}
-    </Stack>
+      </Stack>
+    </GestureHandlerRootView>
   );
 }
 

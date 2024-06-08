@@ -43,7 +43,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="chat"
+        name="survey"
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
@@ -78,7 +78,7 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="survey"
+        name="chat"
         options={{
           title: "Chat",
           tabBarIcon: ({ color }) => (

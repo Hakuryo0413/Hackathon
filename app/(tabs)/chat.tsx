@@ -15,17 +15,33 @@ import VideoScreen from "../components/Video";
 import { useNavigation } from "@react-navigation/native";
 import { images } from "../constants";
 import Doctor from "../../assets/icons/doctor";
+import BotChat from "../../assets/icons/botchat";
+import ChatBot from "../../assets/icons/chatbot";
 
-export default function ChatScreen() {
+export default function messcreen() {
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Image
-          source={images.splash}
-          resizeMode="contain"
-          style={styles.image}
+        <View>
+          <Image
+            source={images.bot}
+            // resizeMethod="scale"
+            // resizeMode="contain"
+            style={styles.image}
+          />
+        </View>
+
+        <BotChat
+          style={{
+            // position:'justify-content',
+            position: "absolute",
+            // width: 250,
+            // height: 140,
+            top: 220,
+            left: 165,
+          }}
         />
       </View>
       <View style={styles.middle}>
@@ -82,7 +98,7 @@ export default function ChatScreen() {
             </Text>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => navigation.navigate("(chats)")}
+              onPress={() => navigation.navigate("(mess)")}
             >
               <Text
                 style={{
@@ -97,13 +113,13 @@ export default function ChatScreen() {
                 Start
               </Text>
             </TouchableOpacity>
-            <Doctor
+            <ChatBot
               style={{
                 position: "absolute",
                 width: 250,
-                height: 140,
-                top: 10,
-                left: 280,
+                height: 220,
+                // top: 10,
+                left: 250,
               }}
             />
           </View>
@@ -161,7 +177,7 @@ export default function ChatScreen() {
             </Text>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => navigation.navigate("(chats)")}
+              onPress={() => navigation.navigate("(mess)")}
             >
               <Text
                 style={{
@@ -195,24 +211,29 @@ export default function ChatScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
   top: {
-    flex: 0.3,
-    justifyContent: "center",
+    flex: 0.4,
+    // backgroundColor: "#F3F4F5",
+
+    // justifyContent: "center",
     alignItems: "center",
   },
   middle: {
     flex: 0.7,
-    backgroundColor: "#F3F4F5",
+    backgroundColor: "white",
     // justifyContent: "center",
   },
 
   image: {
-    // flex: 1,
-    width: 250,
-    height: 250,
+    // flex: 0.5,
+    width: 180,
+    // marginTop: 20,
+    // backgroundColor: "pink",
+    height: 200,
+    // alignItems: "center",
     // justifyContent: "center",
   },
   title: {
