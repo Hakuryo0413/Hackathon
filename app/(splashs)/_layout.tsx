@@ -5,9 +5,9 @@ import { StatusBar } from "expo-status-bar";
 // import { useGlobalContext } from "../../context/GlobalProvider";
 
 const AuthLayout = () => {
-//   const { loading, isLogged } = useGlobalContext();
+  //   const { loading, isLogged } = useGlobalContext();
 
-//   if (!loading && isLogged) return <Redirect href="/home" />;
+  //   if (!loading && isLogged) return <Redirect href="/home" />;
 
   return (
     <>
@@ -24,12 +24,12 @@ const AuthLayout = () => {
             headerShown: false,
           }}
         />
-          {/* <Stack.Screen
-          name="signup"
+        <Stack.Screen
+          name="signin"
           options={{
             headerShown: false,
           }}
-        /> */}
+        />
       </Stack>
 
       {/* <Loader isLoading={loading} /> */}

@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import {
-  Button,
+  // Button,
   Image,
   TextInput,
   View,
   Text,
   SafeAreaView,
   Dimensions,
+  Button,
+  Alert,
+  TouchableOpacity,
+  StyleSheet,
 } from "react-native";
+import { CusButton } from "../components";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { images } from "../constants";
 const Post = () => {
   const [text, setText] = useState("");
 
@@ -21,9 +27,11 @@ const Post = () => {
   return (
     <SafeAreaView
       style={{
-        marginVertical: 8,
-        borderColor: "gray",
-        borderWidth: 1,
+        // marginVertical: 8,
+        // backgroundColor: "gray",
+        marginTop: 20,
+        // borderColor: "gray",
+        // borderWidth: 1,
         borderRadius: 16,
       }}
     >
@@ -47,6 +55,8 @@ const Post = () => {
               justifyContent: "center",
               textAlign: "center",
               alignSelf: "center",
+              fontSize: 18,
+              fontWeight: "600",
             }}
           >
             Username
@@ -56,14 +66,38 @@ const Post = () => {
               justifyContent: "center",
               textAlign: "center",
               alignSelf: "center",
+              fontSize: 12,
+              color: "#1573FE",
             }}
           >
             24 minutes ago
           </Text>
         </View>
+        {/* <Button></Button> */}
+        <TouchableOpacity
+          style={{
+            backgroundColor: "#1573FE",
+            width: 80,
+            height: 32,
+            borderRadius: 10,
+            justifyContent: "center",
+            marginLeft: 150,
+          }}
+        >
+          <Text
+            style={{
+              color: "white",
+              fontSize: 16,
+              textAlign: "center",
+              justifyContent: "center",
+            }}
+          >
+            Follow
+          </Text>
+        </TouchableOpacity>
       </View>
       <View
-        style={{ width: Dimensions.get("window").width * 0.94, padding: 8 }}
+        style={{ width: Dimensions.get("window").width * 0.97, padding: 8 }}
       >
         <Text>
           Một nghiên cứu mới cho thấy mức độ bạo lực giới vẫn cao, đặc biệt là
@@ -75,7 +109,12 @@ const Post = () => {
           source={{
             uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIA-xluhG8Tu0mS0yQIUejkEZNHS4oM8cliQ&s",
           }}
-          style={{ width: "100%", height: 200, borderRadius: 10 }}
+          style={{
+            width: "100%",
+            height: 200,
+            borderRadius: 10,
+            marginTop: 10,
+          }}
         />
         <View style={{ flexDirection: "row", justifyContent: "flex-start" }}>
           <Icon name="heart-o" size={24} color="#000" style={{ padding: 8 }} />
@@ -87,9 +126,51 @@ const Post = () => {
           />
           <Icon name="send-o" size={24} color="#000" style={{ padding: 8 }} />
         </View>
+        <View>
+          <Text style={{ fontWeight: 300 }}>
+            Liked by Huoge and others 1,900
+          </Text>
+          <View style={{ flexDirection: "row" }}>
+            <Image
+              source={images.list}
+              resizeMode="contain"
+              style={styles.image}
+            />
+            <TouchableOpacity
+              style={{
+                backgroundColor: "#F5F5F5",
+                width: 120,
+                height: 32,
+                borderRadius: 10,
+                justifyContent: "center",
+                marginLeft: 10,
+                marginTop: 10,
+              }}
+            >
+              <Text
+                style={{
+                  color: "black",
+                  fontSize: 12,
+                  textAlign: "center",
+                  justifyContent: "center",
+                }}
+              >
+                150 response
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );
 };
 
 export default Post;
+const styles = StyleSheet.create({
+  image: {
+    // flex: 1,
+    width: 100,
+    height: 50,
+    // justifyContent: "center",
+  },
+});

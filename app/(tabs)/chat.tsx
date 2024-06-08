@@ -9,7 +9,7 @@ import {
   
   import EditScreenInfo from "@/components/EditScreenInfo";
   import { Text, View } from "@/components/Themed";
-  import { Button, ImageSlider } from "../components";
+  import { CusButton, ImageSlider } from "../components";
   import VideoScreen from "../components/Video";
   import { useNavigation } from "@react-navigation/native";
   
@@ -27,7 +27,7 @@ import {
   
         {/* <VideoScreen /> */}
         <ImageSlider />
-        <Button
+        <CusButton
           title="Start exercise"
           //   handlePress={() => navigation.navigate("index")}
         />

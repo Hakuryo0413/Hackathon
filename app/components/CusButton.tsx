@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const Button = ({
+const CusButton = ({
   title = "",
   handlePress = () => {},
   isLoading = false,
@@ -23,15 +23,17 @@ const Button = ({
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#FF6800",
-    borderRadius: 20,
+    backgroundColor: "white",
+    borderWidth: 1,
+    borderColor: "#2EB5FA",
+    borderRadius: 32,
     minHeight: 62,
     minWidth: 180,
     justifyContent: "center",
     alignItems: "center",
   },
   text: {
-    color: "white",
+    color: "#2EB5FA",
     fontSize: 16,
     fontWeight: "500",
   },
@@ -39,4 +41,4 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
 });
-export default Button;
+export default CusButton;

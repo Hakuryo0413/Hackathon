@@ -1,13 +1,14 @@
 import Loader from "./Loader";
-import Button from "./Button";
+import CusButton from "./CusButton";
 import CustomButton from "./CustomButton";
 import ImageSlider from "./ImageSlider";
 import Post from "./Post";
 import Photo from "./photo";
+
 export {
   // VideoCard,
   // FormField,
-  Button,
+  CusButton,
   CustomButton,
   ImageSlider,
   Post,

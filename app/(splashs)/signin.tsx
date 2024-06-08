@@ -12,7 +12,10 @@ import {
   StyleSheet,
   Platform,
 } from "react-native";
-// import Google from '../../../asset/icons/google';
+import Google from "../../assets/icons/google";
+import Facebook from "../../assets/icons/facebook";
+import { useNavigation } from "@react-navigation/native";
+
 // import Invisible from '../../../asset/icons/invisible';
 // import Email from '../../../asset/icons/email';
 // import {images, fontSizes} from '../../../constants';
@@ -20,8 +23,11 @@ import {
 // import {isValidEmail, isValidPassword} from '../../utilies/Validations';
 
 import axios from "axios";
+import { images } from "../constants";
 
 function Login({}) {
+  const navigation = useNavigation();
+
   const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
   // Validate email/password
   const [textErrorEmail, setTextErrorEmail] = useState("");
@@ -29,7 +35,9 @@ function Login({}) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const goToTabs = () => {
+    navigation.navigate("(tabs)");
+  };
   const isValidationOK = () => email.length >= 0 && password.length >= 0;
   // &&
   // isValidEmail(email) == true &&
@@ -75,25 +83,18 @@ function Login({}) {
         translucent={true}
       />
       <View style={styles.top}>
-        <Image
-          // source={images.lock}
-          style={{
-            width: 100,
-            height: 100,
-            marginTop: "25%",
-            marginBottom: 10,
-          }}
-        ></Image>
-        <Text style={styles.text1}>Welcome Back!</Text>
-        <Text style={styles.text2}>A handful of model sentence structures</Text>
+        <Text style={styles.text1}>Log in</Text>
+        {/* <Text style={styles.text2}>A handful of model sentence structures</Text> */}
       </View>
 
       <View style={styles.mid}>
         <View>
+          <Text style={{ color: "black" }}>Email address</Text>
+
           <TextInput
             style={styles.inputButton}
             // autoFocus={true}
-            placeholder="Email id"
+            placeholder="Email address"
             // paddingLeft={52}
             placeholderTextColor="black"
             // onChangeText={text => {
@@ -117,6 +118,8 @@ function Login({}) {
         </Text>
 
         <View>
+          <Text style={{ color: "black" }}>Password</Text>
+
           <TextInput
             style={styles.inputButton}
             secureTextEntry={true}
@@ -162,6 +165,22 @@ function Login({}) {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
+          style={styles.button}
+          onPress={goToTabs}
+        >
+          <Text
+            style={{
+              color: "white",
+              // justifyContent: "center",
+              textAlign: "center",
+              fontSize: 18,
+              fontWeight: 600,
+            }}
+          >
+            Log in
+          </Text>
+        </TouchableOpacity>
+        {/* <TouchableOpacity
           style={styles.buttonSignIn}
           disabled={isValidationOK() == false}
           onPress={handlerToLogin}
@@ -177,24 +196,39 @@ function Login({}) {
           >
             Sign in
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       {KeyboardIsShow == false && (
         <View style={styles.below}>
-          <Text style={styles.text3}>(or)</Text>
-          <View style={{ justifyContent: "center" }}>
-            {/* <Google width="24" height="24" style={styles.icon}></Google> */}
-
-            <TouchableOpacity
+          <Text style={styles.text3}>Or Login with</Text>
+          <View style={{ justifyContent: "center", flexDirection: "row" }}>
+            <View
               style={{
-                // alignItems: 'center',
-                flexDirection: "row",
+                width: 160,
+                backgroundColor: "white",
+                height: 60,
                 justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 10,
+                margin: 10,
               }}
             >
-              <Text style={styles.text3}> Sign in with Google</Text>
-            </TouchableOpacity>
+              <Google width="24" height="24" style={styles.icon}></Google>
+            </View>
+            <View
+              style={{
+                width: 160,
+                backgroundColor: "white",
+                height: 60,
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 10,
+                margin: 10,
+              }}
+            >
+              <Facebook width="24" height="24" style={styles.icon}></Facebook>
+            </View>
           </View>
 
           <View
@@ -232,26 +266,36 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#e4f1f9",
   },
-
+  button: {
+    alignItems: "center",
+    backgroundColor: "#2EB5FA",
+    padding: 10,
+    justifyContent: "center",
+    marginTop: 20,
+    borderRadius: 15,
+    height: 50,
+    width: "80%",
+  },
   top: {
-    flex: 40,
+    flex: 30,
     justifyContent: "center",
     alignItems: "center",
   },
   mid: {
-    flex: 35,
+    flex: 40,
     alignItems: "center",
   },
   below: {
-    flex: 25,
+    flex: 40,
   },
   inputButton: {
     marginTop: 10,
     padding: 10,
-    width: 300,
+    width: 340,
+    height: 60,
     backgroundColor: "white",
     fontFamily: "Poppins-Regular",
-    borderRadius: 5 /* bo tròn góc */,
+    borderRadius: 10 /* bo tròn góc */,
     borderWidth: 1 /* độ dày đường viền */,
   },
 
@@ -263,7 +307,8 @@ const styles = StyleSheet.create({
   text1: {
     // ...TEXT,
     color: "black",
-    fontSize: 26,
+    fontSize: 32,
+    fontWeight: "bold",
     fontFamily: "Poppins-Medium",
     marginTop: 10,
   },
@@ -282,8 +327,8 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Medium",
   },
   icon: {
-    position: "absolute",
-    marginLeft: 90,
+    // position: "absolute",
+    // marginLeft: 20, // marginLeft: 90,
   },
   icons: {
     position: "absolute",

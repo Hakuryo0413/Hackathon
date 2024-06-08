@@ -6,4 +6,9 @@ export default {
   logo: require("../../assets/images/logo.png"),
   logoSmall: require("../../assets/images/logo-small.png"),
   empty: require("../../assets/images/empty.png"),
+  splash: require("../../assets/images/splash.jpeg"),
+  list: require("../../assets/images/list.jpeg"),
+  splash2: require("../../assets/images/splash2.jpeg"),
+  facebook: require("../../assets/images/facebook.jpeg"),
+  google: require("../../assets/images/google.jpeg"),
 };

@@ -37,7 +37,7 @@ const ImageSlider = (style: any) => {
 const styles = StyleSheet.create({
   image: {
     width: Dimensions.get("window").width, // Chiều rộng của cửa sổ
-    height: "40%", // Chiều cao tối đa
+    height: "100%", // Chiều cao tối đa
     resizeMode: "cover",
     // Đảm bảo hình ảnh bao phủ hoàn toàn không gian
     backgroundColor: "lightgray",
