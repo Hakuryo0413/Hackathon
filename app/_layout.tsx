@@ -61,6 +61,9 @@ function RootLayoutNav() {
       <Stack.Screen name="(screens)" options={{ headerShown: false }} />
       <Stack.Screen name="(posts)" options={{ headerShown: false }} />
 
+      <Stack.Screen name="modal" options={{ headerShown: false }} />
+      <Stack.Screen name="(chats)" options={{ headerShown: false }} />
+
       {/* <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="search/[query]" options={{ headerShown: false }} /> */}
     </Stack>

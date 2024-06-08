@@ -4,7 +4,7 @@ import { CustomButton } from ".";
 import * as ImagePicker from "expo-image-picker";
 import React, { useState } from "react";
 
-const PlaceholderImage: ImageSourcePropType = require("../../assets/icons/home.png");
+const PlaceholderImage: ImageSourcePropType = require("../../assets/icons/photo.jpeg");
 
 const ImageViewer = ({
   placeholderImageSource = undefined,
@@ -53,7 +53,7 @@ export default function Photo() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   image: {
-    width: 500, // or any other size
-    height: 500, // or any other size
+    width: 300, // or any other size
+    height: 300, // or any other size
     borderRadius: 10, // to make the image corners rounded
     marginTop: 20, // or any other size
   },

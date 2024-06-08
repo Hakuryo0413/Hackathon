@@ -78,8 +78,9 @@ export default function CourseScreen() {
           )}
         />
       </View>
+      <Text style={styles.header}>Top Course</Text>
+
       <View style={styles.bottom}>
-        <Text style={styles.header}>Top Course</Text>
         <FlatList
           data={TOPDATA}
           horizontal={true}

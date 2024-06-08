@@ -1,6 +1,6 @@
 import { useVideoPlayer, VideoView } from "expo-video";
 import { useEffect, useRef, useState } from "react";
-import { PixelRatio, StyleSheet, View, Button } from "react-native";
+import { PixelRatio, StyleSheet, View, Button, Dimensions } from "react-native";
 
 const videoSource =
   "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4";
@@ -32,7 +32,7 @@ export default function VideoScreen() {
         allowsFullscreen
         allowsPictureInPicture
       />
-      <View style={styles.controlsContainer}>
+      {/* <View style={styles.controlsContainer}>
         <Button
           title={isPlaying ? "Pause" : "Play"}
           onPress={() => {
@@ -44,7 +44,7 @@ export default function VideoScreen() {
             setIsPlaying(!isPlaying);
           }}
         />
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -58,8 +58,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 50,
   },
   video: {
-    width: 350,
-    height: 275,
+    width: Dimensions.get("window").width, // Chiều rộng của cửa sổ
+    height: "100%", // Chiều cao tối đa
+    resizeMode: "cover",
   },
   controlsContainer: {
     padding: 10,

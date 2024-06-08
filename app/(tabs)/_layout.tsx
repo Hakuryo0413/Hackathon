@@ -26,10 +26,10 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "red",
+        tabBarActiveTintColor: "#5BC8FF",
 
         tabBarStyle: {
-          backgroundColor: "orange",
+          // backgroundColor: "orange",
           borderRadius: 35,
           height: 80,
           paddingTop: 10,
@@ -43,9 +43,9 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="home"
+        name="chat"
         options={{
-          title: "Feeds",
+          title: "Home",
           tabBarIcon: ({ color }) => (
             <Entypo name="home" size={24} color={color} />
           ),
@@ -78,11 +78,13 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="course"
+        name="survey"
         options={{
-          title: "Course",
+          title: "Chat",
           tabBarIcon: ({ color }) => (
-            <Feather name="search" size={24} color={color} />
+            <AntDesign name="wechat" size={24} color={color} />
+
+            // <Feather name="message-circle" size={24} color={color} />
           ),
 
           headerRight: () => (
@@ -104,28 +106,41 @@ export default function TabLayout() {
       <Tabs.Screen
         name="call"
         options={{
-          title: "Call",
+          title: "Record",
           tabBarIcon: ({ color }) => (
-            <AntDesign name="home" size={24} color={color} />
+            <AntDesign name="camera" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="survey"
+        name="home"
         options={{
-          title: "Photo",
+          title: "Feeds",
           tabBarIcon: ({ color }) => (
-            <AntDesign name="plus" size={24} color={color} />
+            <AntDesign name="instagram" size={24} color={color} />
+          ),
+          headerRight: () => (
+            <Link href="/modal" asChild>
+              <Pressable>
+                {({ pressed }) => (
+                  <AntDesign
+                    name="pluscircleo"
+                    size={24}
+                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                  />
+                )}
+              </Pressable>
+            </Link>
           ),
         }}
       />
 
       <Tabs.Screen
-        name="chat"
+        name="course"
         options={{
-          title: "Chat",
+          title: "Course",
           tabBarIcon: ({ color }) => (
-            <AntDesign name="heart" size={24} color={color} />
+            <AntDesign name="book" size={24} color={color} />
           ),
         }}
       />

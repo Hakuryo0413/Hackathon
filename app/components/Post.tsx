@@ -100,14 +100,14 @@ const Post = () => {
         style={{ width: Dimensions.get("window").width * 0.97, padding: 8 }}
       >
         <Text>
-          Một nghiên cứu mới cho thấy mức độ bạo lực giới vẫn cao, đặc biệt là
-          trong vấn đề ấu dâm, với 50% trường hợp ghi nhận. Sự lan rộng của hiện
-          tượng này đòi hỏi sự can thiệp quyết liệt từ cộng đồng và chính phủ để
-          bảo vệ quyền lợi của mọi người.
+          Trên chuyến xe buýt đông đúc hôm qua, mình đã bị một kẻ lạ mặt sờ
+          soạng. Cảm giác sợ hãi và ghê tởm khiến mình chết lặng. Nhưng mình sẽ
+          không im lặng nữa. Không một ai đáng phải chịu đựng điều này.
+          #StopSexualHarassment
         </Text>
         <Image
           source={{
-            uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIA-xluhG8Tu0mS0yQIUejkEZNHS4oM8cliQ&s",
+            uri: "https://hnm.1cdn.vn/thumbs/540x360/2023/06/18/hanoimoi.com.vn-uploads-images-trungtruc-2023-06-15-_xe-buyt.jpg",
           }}
           style={{
             width: "100%",
