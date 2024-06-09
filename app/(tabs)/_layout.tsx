@@ -43,7 +43,29 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="survey"
+        name="home"
+        options={{
+          title: "Feeds",
+          tabBarIcon: ({ color }) => (
+            <AntDesign name="instagram" size={24} color={color} />
+          ),
+          headerRight: () => (
+            <Link href="/modal" asChild>
+              <Pressable>
+                {({ pressed }) => (
+                  <AntDesign
+                    name="pluscircleo"
+                    size={24}
+                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                  />
+                )}
+              </Pressable>
+            </Link>
+          ),
+        }}
+      />
+      {/* <Tabs.Screen
+        name="feed"
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
@@ -55,27 +77,17 @@ export default function TabLayout() {
           //       alignItems: "center",
           //       flexDirection: "row",
 
-          //       backgroundColor: "white",
+          //       // backgroundColor: "pink",
           //       height: 50,
           //       width: DWidth,
           //       paddingHorizontal: 20,
           //     }}
           //   >
-          //     {/* <Ionicons name="md-menu-sharp" size={24} color="white" /> */}
-          //     <Image
-          //       resizeMode="contain"
-          //       style={{
-          //         width: 90,
-          //         height: 50,
-          //         marginLeft: "auto",
-          //         marginRight: "auto",
-          //       }}
-          //       // source={require("../../assets/images/movie/logo.png")}
-          //     />
+          //     <Ionicons name="call" size={24} color="white" />
           //   </View>
           // ),
         }}
-      />
+      /> */}
 
       <Tabs.Screen
         name="chat"
@@ -109,28 +121,6 @@ export default function TabLayout() {
           title: "Record",
           tabBarIcon: ({ color }) => (
             <AntDesign name="camera" size={24} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="home"
-        options={{
-          title: "Feeds",
-          tabBarIcon: ({ color }) => (
-            <AntDesign name="instagram" size={24} color={color} />
-          ),
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <AntDesign
-                    name="pluscircleo"
-                    size={24}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
           ),
         }}
       />
