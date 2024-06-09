@@ -14,7 +14,7 @@ import { Tabs } from "expo-router";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { SafeAreaView, Text, View } from "react-native";
 // import MessengerScreen from "./(tabs)/messenger";
-const client = StreamChat.getInstance("enyzgxhqvaz4");
+const client = StreamChat.getInstance("94a3w42k2qn3");
 import { Channel as ChannelType, StreamChat } from "stream-chat";
 
 const ChatLayout = () => {
@@ -32,23 +32,23 @@ const ChatLayout = () => {
       const channel = client.channel("messaging", "the_park", {
         name: "The Park",
       });
-      const channel2 = client.channel("messaging", "the_park1", {
-        name: "The Park1",
+      const channel2 = client.channel("messaging", "the_doctor1", {
+        name: "The Doctor1",
       });
-      const channel3 = client.channel("messaging", "the_park2", {
-        name: "The Park2",
+      const channel3 = client.channel("messaging", "the_doctor2", {
+        name: "The Doctor2",
       });
       await channel.watch();
       await channel2.watch();
       await channel3.watch();
-
+      await channel.addMembers(["jlahey"]);
       const members1 = await channel.queryMembers({});
-      const members2 = await channel2.queryMembers({});
-      const members3 = await channel3.queryMembers({});
+      // const members2 = await channel2.queryMembers({});
+      // const members3 = await channel3.queryMembers({});
 
       console.log("Members of the_park:", members1);
-      console.log("Members of the_park1:", members2);
-      console.log("Members of the_park2:", members3);
+      // console.log("Members of the_park1:", members2);
+      // console.log("Members of the_park2:", members3);
     };
 
     connect();

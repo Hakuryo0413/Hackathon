@@ -11,6 +11,7 @@ import {
   Button,
 } from "react-native";
 // import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
+import { LinearGradient } from "expo-linear-gradient";
 
 import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
@@ -45,19 +46,20 @@ const TEACHERDATA = [
 const TOPDATA = [
   {
     image: "path_to_pizza_image",
-    title: "Pizza",
+    title: "Explain what is meant by ‘gender (in)equality’ and its core terms.",
     // question: "3 questions",
   },
   {
     image: "path_to_burger_image",
-    title: "Burger",
+    title:
+      "Describe how practices of gender inequality are sustained through gendered discourse and practice.",
     // question: "3 questions",
   },
-  {
-    image: "path_to_risotto_image",
-    title: "Risotto",
-    // question: "3 questions",
-  },
+  // {
+  //   image: "path_to_risotto_image",
+  //   title: "Risotto",
+  //   // question: "3 questions",
+  // },
 ];
 export default function DetailScreen() {
   const navigation = useNavigation();
@@ -130,8 +132,8 @@ export default function DetailScreen() {
           {/* <ScrollView style={styles.scrollView}> */}
           <Text style={styles.text}>
             {showFullText
-              ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam..."}
+              ? "Gender inequality persists as a significant societal challenge, driven by entrenched causes and resulting in far-reaching consequences. Rooted in social norms, economic disparities, limited access to education, discriminatory laws, and pervasive violence, gender inequality perpetuates injustice and hinders progress. Its consequences span diminished economic growth, health disparities, social and political instability, and strained interpersonal relationships. Overcoming gender inequality demands concerted efforts, including promoting education and awareness, enacting legal reforms, empowering women with economic opportunities, increasing political representation, fostering inclusive work environments, engaging communities, and challenging media and cultural representations. By addressing its causes and consequences through comprehensive strategies, societies can strive towards a more equitable and inclusive future."
+              : "Gender inequality is a key challenge in society. Explore its causes and consequences and consider the ways you can overcome it."}
           </Text>
           {!showFullText ? (
             <Button title="See More" onPress={() => setShowFullText(true)} />
@@ -179,22 +181,26 @@ export default function DetailScreen() {
               <TouchableOpacity
                 onPress={() => navigation.navigate("(screens)")}
               >
-                <View
+                <LinearGradient
+                  // Gradient colors
+                  colors={["#32ADE6", "#FFFFFF"]}
+                  // Start and end positions
+                  start={{ x: 0, y: 0 }} // Điểm bắt đầu: góc trên bên trái
+                  end={{ x: 1, y: 1.7 }} // Điểm kết thúc: góc dưới bên phải
                   style={{
                     margin: 10,
-                    // padding: 20,
                     height: 200,
                     width: 180,
-                    backgroundColor: "lightgray",
                     borderRadius: 10,
+                    justifyContent: "center",
+                    alignItems: "center", // Added for centering text
                   }}
                 >
-                  <Image style={styles.tinyLogo} source={images.splash} />
+                  {/* <Image style={styles.tinyLogo} source={images.splash} /> */}
                   <Text style={styles.title}>{item.title}</Text>
                   {/* <Text style={styles.title}>{item.question}</Text> */}
-
                   {/* <Text style={styles.title}>{item.question}</Text> */}
-                </View>
+                </LinearGradient>
               </TouchableOpacity>
             )}
           />
@@ -308,8 +314,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   title: {
-    fontSize: 20,
+    fontSize: 16,
+    color: "white",
     fontWeight: "bold",
+    justifyContent: "center",
+    textAlign: "center",
   },
   // separator: {
   //   marginVertical: 30,

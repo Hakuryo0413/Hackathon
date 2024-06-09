@@ -1,25 +1,33 @@
 import React from "react";
 import { View, Image, FlatList, Dimensions, StyleSheet } from "react-native";
-
+import course from "../constants/images";
 const images = [
   {
     id: 1,
-    uri: "https://static.vecteezy.com/system/resources/thumbnails/027/254/720/small_2x/colorful-ink-splash-on-transparent-background-png.png",
+    source: require("../../assets/images/course.jpeg"),
   },
   {
     id: 2,
-    uri: "https://static.vecteezy.com/system/resources/thumbnails/027/254/720/small_2x/colorful-ink-splash-on-transparent-background-png.png",
+    source: require("../../assets/images/2.jpeg"),
   },
   {
     id: 3,
-    uri: "https://static.vecteezy.com/system/resources/thumbnails/027/254/720/small_2x/colorful-ink-splash-on-transparent-background-png.png",
+    source: require("../../assets/images/2-4.jpeg"),
+  },
+  {
+    id: 3,
+    source: require("../../assets/images/2-5.jpeg"),
+  },
+  {
+    id: 3,
+    source: require("../../assets/images/2-3.jpeg"),
   },
   // Add more images as needed
 ];
 
 const ImageSlider = (style: any) => {
   const renderItem = ({ item }: { item: any }) => (
-    <Image source={{ uri: item.uri }} style={styles.image} />
+    <Image source={item.source} style={styles.image} />
   );
 
   return (
@@ -36,7 +44,8 @@ const ImageSlider = (style: any) => {
 
 const styles = StyleSheet.create({
   image: {
-    width: Dimensions.get("window").width, // Chiều rộng của cửa sổ
+    // width: "100%",
+    width: Dimensions.get("window").width * 0.955, // Chiều rộng của cửa sổ
     height: "100%", // Chiều cao tối đa
     resizeMode: "cover",
     // Đảm bảo hình ảnh bao phủ hoàn toàn không gian
