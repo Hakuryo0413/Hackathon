@@ -147,7 +147,7 @@ const Quiz = () => {
               marginVertical: 10,
             }}
           >
-            <Text style={{ fontSize: 20, color: COLORS.white }}>{option}</Text>
+            <Text style={{ fontSize: 14, color: COLORS.white }}>{option}</Text>
 
             {/* Show Check Or Cross Icon based on correct answer*/}
             {option == correctOption ? (
@@ -155,6 +155,8 @@ const Quiz = () => {
                 style={{
                   width: 30,
                   height: 30,
+                  marginLeft: 5,
+                  // marginHorizontal:10,
                   borderRadius: 30 / 2,
                   backgroundColor: COLORS.success,
                   justifyContent: "center",
@@ -165,7 +167,7 @@ const Quiz = () => {
                   name="check"
                   style={{
                     color: COLORS.white,
-                    fontSize: 20,
+                    fontSize: 18,
                   }}
                 />
               </View>
@@ -256,7 +258,7 @@ const Quiz = () => {
         flex: 1,
       }}
     >
-      <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
+      <StatusBar barStyle="dark-content" backgroundColor={COLORS.primary} />
       <View
         style={{
           flex: 1,

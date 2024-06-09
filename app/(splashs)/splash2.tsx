@@ -34,11 +34,7 @@ const Splash2 = () => {
         backgroundColor="transparent"
         translucent={true}
       />
-      <Image
-        source={images.splash2}
-        resizeMode="contain"
-        style={styles.image}
-      />
+      <Image source={images.shield} resizeMode="contain" style={styles.image} />
       <Text style={styles.text}>Explore the app</Text>
       {/* {showMessage && (
         <View style={styles.message}>
@@ -120,8 +116,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   image: {
-    width: 360,
-    height: 360,
+    width: 300,
+    height: 300,
+    marginBottom: 50,
     marginTop: -100,
   },
 

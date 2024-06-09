@@ -28,7 +28,6 @@ export default function CreatePostScreen() {
     // Xử lý logic khi nhấn nút đăng bài ở đây
     console.log("Content:", text);
     // Reset ô nhập liệu sau khi đăng bài
-    setText("");
   };
 
   return (

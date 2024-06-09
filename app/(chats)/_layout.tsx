@@ -13,7 +13,7 @@ import { StatusBar } from "expo-status-bar";
 import { Tabs } from "expo-router";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { SafeAreaView, Text, View } from "react-native";
-import { WebView } from 'react-native-webview';
+import { WebView } from "react-native-webview";
 // import MessengerScreen from "./(tabs)/messenger";
 const client = StreamChat.getInstance("94a3w42k2qn3");
 import { Channel as ChannelType, StreamChat } from "stream-chat";
@@ -61,38 +61,10 @@ const ChatLayout = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <OverlayProvider>
-        {/* <StatusBar backgroundColor="#161622" style="dark" /> */}
-        <WebView
-    originWhitelist={['*']}
-    source={{ uri: 'https://reactnative.dev/' }}
-/>
-        <Chat client={client}>
-          {channel ? (
-            <Channel
-              channel={channel}
-              keyboardVerticalOffset={0}
-              thread={thread}
-              threadList={!!thread}
-            >
-              {thread ? (
-                <Thread />
-              ) : (
-                <>
-                  {/* <MessageList onThreadSelect={setThread} /> */}
-                  <WebView
-                      originWhitelist={['*']}
-                      source={{ uri: 'https://hinnycoder.github.io/' }}
-                  />
-                  {/* <MessageInput /> */}
-                </>
-              )}
-            </Channel>
-          ) : (
-            <ChannelList onSelect={setChannel} />
-          )}
-        </Chat>
-      </OverlayProvider>
+      <WebView
+        originWhitelist={["*"]}
+        source={{ uri: "https://hinnycoder.github.io/" }}
+      />
     </SafeAreaView>
   );
 };

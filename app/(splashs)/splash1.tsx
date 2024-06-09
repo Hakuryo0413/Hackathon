@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
   },
   image: {
     // flex: 1,
-    width: 360,
-    height: 360,
+    width: 300,
+    height: 300,
     // justifyContent: "center",
   },
   button: {

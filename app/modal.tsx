@@ -7,6 +7,7 @@ import {
   TextInput,
   Keyboard,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
@@ -16,6 +17,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 export default function ModalScreen() {
   const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
+  const navigation = useNavigation();
 
   useEffect(() => {
     Keyboard.addListener("keyboardDidShow", () => {
@@ -92,7 +94,7 @@ export default function ModalScreen() {
       <View style={styles.below}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("quiz")}
+          onPress={() => navigation.navigate("home")}
         >
           <Text
             style={{

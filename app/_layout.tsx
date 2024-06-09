@@ -75,11 +75,12 @@ function RootLayoutNav() {
     // <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Stack>
-        {/* <Stack.Screen name="(splashs)" options={{ headerShown: false }} /> */}
+        <Stack.Screen name="(splashs)" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 
         <Stack.Screen name="(screens)" options={{ headerShown: false }} />
         <Stack.Screen name="(posts)" options={{ headerShown: false }} />
+        <Stack.Screen name="(records)" options={{ headerShown: false }} />
 
         <Stack.Screen name="modal" options={{ headerShown: false }} />
         <Stack.Screen name="(mess)" options={{ headerShown: false }} />
@@ -90,21 +91,21 @@ function RootLayoutNav() {
         {/* <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="search/[query]" options={{ headerShown: false }} /> */}
       </Stack>
-      <View
+      {/* <View
         style={{
           width: 70,
           height: 70,
           // backgroundColor: "pink",
           position: "absolute", // Position it absolutely
-          bottom: 30, // Position it 10px from the bottom
-          right: 10, // Position it 10px from the right
+          bottom: 70, // Position it 10px from the bottom
+          left: 30, // Position it 10px from the right
           marginBottom: 90,
         }}
       >
         <TouchableOpacity onPress={() => makePhoneCall()}>
           <Image source={images.sos} resizeMode="cover" style={styles.image} />
         </TouchableOpacity>
-      </View>
+      </View> */}
     </GestureHandlerRootView>
   );
 }

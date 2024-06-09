@@ -13,6 +13,8 @@ export default {
   google: require("../../assets/images/google.jpeg"),
   bot: require("../../assets/images/bot.jpeg"),
   sos: require("../../assets/images/sos.png"),
+  shield: require("../../assets/images/logo.jpeg"),
+  record: require("../../assets/images/record.jpeg"),
 
   course: require("../../assets/images/course.jpeg"),
 };
