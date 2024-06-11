@@ -14,10 +14,46 @@ import { Text, View } from "@/components/Themed";
 import React, { useEffect, useState } from "react";
 import { Photo } from "./components";
 import { AntDesign } from "@expo/vector-icons";
+import posts from "./data/PostData";
 
-export default function ModalScreen() {
+type Post = {
+  id: number;
+  image: string;
+  content: string;
+  author: string;
+  time: string;
+};
+type Props = {
+  updatePosts: Post[];
+};
+
+export default function ModalScreen({ updatePosts }: Props) {
+  const [post, setPosts] = useState<Post[]>(posts);
+
   const [KeyboardIsShow, setKeyboardIsShow] = useState(false);
   const navigation = useNavigation();
+  const [text, setText] = useState("");
+  const [value, onChangeText] = React.useState("Useless Multiline Placeholder");
+  const [currentPosts, setCurrentPosts] = useState(posts); // Khởi tạo mảng posts ban đầu
+
+  const handleSubmit = () => {
+    const newPost = {
+      id: currentPosts.length + 1, // Tạo id cho bài đăng mới
+      image:
+        "https://images.fpt.shop/unsafe/filters:quality(90)/fptshop.com.vn/uploads/images/tin-tuc/164458/Originals/bao-luc-hoc-duong-la-gi-1.jpg", // Điền đường link hình ảnh nếu có
+      content: text,
+      author: "Người tham gia ẩn danh", // Đổi thông tin tác giả nếu cần
+      time: new Date().toLocaleString(), // Lấy thời gian hiện tại
+    };
+
+    posts.push(newPost);
+
+    navigation.navigate("home");
+  };
+
+  useEffect(() => {
+    setPosts(post);
+  }, post);
 
   useEffect(() => {
     Keyboard.addListener("keyboardDidShow", () => {
@@ -77,25 +113,14 @@ export default function ModalScreen() {
           // autoFocus={true}
           placeholder="Share something..."
           multiline={true}
-          // numberOfLines={5}
-          // paddingLeft={52}
           placeholderTextColor="black"
-
-          // onChangeText={text => {
-          //   setTextErrorEmail(
-          //     isValidEmail(text) == true ? '' : 'Please enter valid email',
-          //   );
-          //   setEmail(text);
-          // }}
+          onChangeText={(text) => onChangeText(text)}
         />
 
         <Photo />
       </View>
       <View style={styles.below}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("home")}
-        >
+        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Text
             style={{
               color: "white",

@@ -17,17 +17,32 @@ import {
   Upload,
 } from "antd";
 import { Photo } from "../components";
-const { TextArea } = Input;
+import posts from "../data/PostData";
 
 // import TextArea from "antd/es/input/TextArea";
 export default function CreatePostScreen() {
   const [text, setText] = useState("");
   const [value, onChangeText] = React.useState("Useless Multiline Placeholder");
+  const [currentPosts, setCurrentPosts] = useState(posts); // Khởi tạo mảng posts ban đầu
 
   const handleSubmit = () => {
-    // Xử lý logic khi nhấn nút đăng bài ở đây
-    console.log("Content:", text);
-    // Reset ô nhập liệu sau khi đăng bài
+    const newPost = {
+      id: currentPosts.length + 1, // Tạo id cho bài đăng mới
+      image:
+        "https://images.fpt.shop/unsafe/filters:quality(90)/fptshop.com.vn/uploads/images/tin-tuc/164458/Originals/bao-luc-hoc-duong-la-gi-1.jpg", // Điền đường link hình ảnh nếu có
+      content: text,
+      author: "Người tham gia ẩn danh", // Đổi thông tin tác giả nếu cần
+      time: new Date().toLocaleString(), // Lấy thời gian hiện tại
+    };
+
+    const updatedPosts = [...currentPosts, newPost]; // Thêm bài đăng mới vào mảng posts
+
+    setCurrentPosts(updatedPosts); // Cập nhật mảng posts mới
+
+    setText(""); // Reset nội dung ô nhập liệu
+
+    console.log("New Post:", newPost);
+    console.log("All Posts:", updatedPosts);
   };
 
   return (
@@ -51,7 +66,7 @@ export default function CreatePostScreen() {
           />
         </View>
         <Button title="Post" onPress={handleSubmit} />
-        {/* <Photo /> */}
+        <Photo />
       </View>
     </SafeAreaView>
   );

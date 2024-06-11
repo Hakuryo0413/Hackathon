@@ -6,15 +6,17 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
 import { useNavigation } from "@react-navigation/native";
-import { ImageSlider } from "../components";
+import { ImageSlider, ImageSlider2 } from "../components";
 import { images } from "../constants";
 import { ScrollView } from "react-native";
+import FlatlistScreen from "../components/Flatlist";
 
 const DATA = [
   {
@@ -61,109 +63,61 @@ export default function CourseScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.top}>
-        <ImageSlider />
-      </View>
-      <View style={styles.middle}>
-        <SectionList
-          sections={DATA}
-          keyExtractor={(item, index) => item.title + index}
-          renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => navigation.navigate("(screens)")}>
-              <View style={styles.item}>
-                <Image
-                  source={{ uri: item.image }}
-                  resizeMode="cover"
-                  style={styles.image}
-                />
-                <View
-                  style={{
-                    // backgroundColor: "pink",
-                    justifyContent: "center",
-                    marginRight: 40,
-                    marginLeft: 20,
-                  }}
-                >
-                  <Text
-                    style={styles.title}
-                    // numberOfLines={2}
-                    // ellipsizeMode="tail"
-                  >
-                    {item.title}
-                  </Text>
-                  <Text
-                    style={{
-                      color: "gray",
-                      marginLeft: 8,
-                      marginRight: 20,
-                      paddingRight: 20,
-                    }}
-                  >
-                    {item.teacher}
-                  </Text>
-                </View>
-              </View>
-            </TouchableOpacity>
-          )}
-          renderSectionHeader={({ section: { title } }) => (
-            <Text style={styles.header}>{title}</Text>
-          )}
-        />
-      </View>
-      <Text style={styles.header}>Top Course</Text>
-      {/* <ScrollView> */}
-      <View style={styles.bottom}>
-        <FlatList
-          data={TOPDATA}
-          horizontal={true}
-          renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => navigation.navigate("(screens)")}>
-              <View
-                style={{
-                  margin: 10,
-                  height: 160,
-                  width: 200,
-                  borderRadius: 20,
-                  overflow: "hidden", // Ensure the gradient doesn't spill over
-                }}
+      <ScrollView>
+        <View style={styles.top}>
+          <ImageSlider />
+        </View>
+        <View style={styles.middle}>
+          <SectionList
+            sections={DATA}
+            keyExtractor={(item, index) => item.title + index}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                onPress={() => navigation.navigate("(screens)")}
               >
-                <Image style={styles.tinyLogo} source={{ uri: item.image }} />
-                <LinearGradient
-                  // Gradient colors
-                  colors={["transparent", "rgba(0,0,0,0.6)"]}
-                  // Start and end positions
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 0, y: 1 }}
-                  style={{
-                    position: "absolute",
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    height: 160,
-                  }}
-                >
-                  <Text
+                <View style={styles.item}>
+                  <Image
+                    source={{ uri: item.image }}
+                    resizeMode="cover"
+                    style={styles.image}
+                  />
+                  <View
                     style={{
-                      position: "absolute",
-                      top: 100,
-                      left: 5,
-                      color: "white",
-                      fontWeight: "700",
-                      fontSize: 15,
-                      textAlign: "center",
+                      // backgroundColor: "pink",
+                      justifyContent: "center",
+                      marginRight: 40,
+                      marginLeft: 20,
                     }}
                   >
-                    {item.title}
-                  </Text>
-                </LinearGradient>
-              </View>
-            </TouchableOpacity>
-          )}
-        />
-
-        {/* <ImageSlider /> */}
-      </View>
-      {/* </ScrollView> */}
+                    <Text style={styles.title}>{item.title}</Text>
+                    <Text
+                      style={{
+                        color: "gray",
+                        marginLeft: 8,
+                        marginRight: 20,
+                        paddingRight: 20,
+                      }}
+                    >
+                      {item.teacher}
+                    </Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            )}
+            renderSectionHeader={({ section: { title } }) => (
+              <Text style={styles.header}>{title}</Text>
+            )}
+          />
+          <Text style={styles.header}>Top Course</Text>
+          <FlatlistScreen />
+        </View>
+        <View style={styles.bottom}>
+          <Text style={styles.header}>More Courses you might like </Text>
+          <Image source={images.img} style={styles.image2} />
+          <Text style={styles.header}>You recently viewed</Text>
+          <ImageSlider2 />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -173,6 +127,12 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
     marginHorizontal: 10,
     backgroundColor: "",
+  },
+  scrollViewContent: {
+    flexGrow: 1,
+    alignItems: "center",
+    paddingVertical: 20,
+    // paddingHorizontal: 20,
   },
   top: {
     flex: 0.38,
@@ -184,7 +144,7 @@ const styles = StyleSheet.create({
   },
   bottom: {
     flex: 0.265,
-    backgroundColor: "",
+    backgroundColor: "#FAFBFC",
     // backgroundColor: "pink",
   },
   item: {
@@ -215,5 +175,16 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 90,
+  },
+  image2: {
+    marginHorizontal: 10,
+    height: 320,
+    width: "100%",
+    // marginTop:30,
+    // width: Dimensions.get("window").width * 0.95, // Chiều rộng của cửa sổ
+    // backgroundColor: "pink",
+    resizeMode: "contain",
+
+    // height: 150,
   },
 });

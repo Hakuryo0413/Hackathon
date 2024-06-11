@@ -13,19 +13,16 @@ import { useNavigation } from "@react-navigation/native";
 const images = [
   {
     id: 1,
-    source: require("../../assets/images/course.jpeg"),
+    source: require("../../assets/images/2-5.jpeg"),
   },
   {
     id: 2,
-    source: require("../../assets/images/2.jpeg"),
+    source: require("../../assets/images/2-3.jpeg"),
   },
-  {
-    id: 3,
-    source: require("../../assets/images/2-4.jpeg"),
-  },
+  // Add more images as needed
 ];
 
-const ImageSlider = (style: any) => {
+const ImageSlider2 = (style: any) => {
   const navigation = useNavigation();
   const renderItem = ({ item }: { item: any }) => (
     <TouchableOpacity onPress={() => navigation.navigate("(screens)")}>
@@ -49,7 +46,7 @@ const styles = StyleSheet.create({
   image: {
     // width: "100%",
     width: Dimensions.get("window").width * 0.955, // Chiều rộng của cửa sổ
-    height: 260,
+    height: 245,
     // height: "50%", // Chiều cao tối đa
     resizeMode: "cover",
     // Đảm bảo hình ảnh bao phủ hoàn toàn không gian
@@ -57,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ImageSlider;
+export default ImageSlider2;

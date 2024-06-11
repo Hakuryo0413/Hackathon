@@ -15,6 +15,6 @@ export default {
   sos: require("../../assets/images/sos.png"),
   shield: require("../../assets/images/logo.jpeg"),
   record: require("../../assets/images/record.jpeg"),
-
+  img: require("../../assets/images/img.jpeg"),
   course: require("../../assets/images/course.jpeg"),
 };

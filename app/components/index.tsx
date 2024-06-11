@@ -5,6 +5,8 @@ import ImageSlider from "./ImageSlider";
 import Post from "./Post";
 import Photo from "./photo";
 import Comment from "./Comment";
+import ImageSlider2 from "./ImageSlider2";
+
 export {
   // VideoCard,
   // FormField,
@@ -12,6 +14,8 @@ export {
   CustomButton,
   ImageSlider,
   Post,
+  ImageSlider2,
+
   // InfoBox,
   Loader,
   Comment,
